@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Fare Prediction</title>
+</head>
+<body>
+    <div>
+      <h1>Flight Fare Prediction</h1>
+      <br><br><h2>{{ prediction_text }}<h2><br><br>
+
+        <form action="{{ url_for('predict')}}" method="post">
+            <h3>Airline</h3>
+            <select name="Airline",id="airline" required="required">
+              <option value="Jet Airways">Jet Airways</option>
+              <option value="IndiGo">IndiGo</option>
+              <option value="Air India">Air India</option>
+              <option value="Multiple carriers">Multiple carriers</option>
+              <option value="SpiceJet">SpiceJet</option>
+              <option value="Vistara">Vistara</option>
+              <option value="Air Asia">Air Asia</option>
+              <option value="GoAir">GoAir</option>
+              <option value="Multiple carriers Premium economy">Multiple carriers Premium economy</option>
+              <option value="Jet Airways Business">Jet Airways Business</option>
+              <option value="Vistara Premium economy">Vistara Premium economy</option>
+              <option value="Trujet">Trujet</option>
+            </select>
+
+            <h3>Where do you start from?</h3>
+            <select name="Source" id="source" required="required">
+                <option value="Delhi">Delhi</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Banglore">Banglore</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Chennai">Chennai</option>
+            </select>
+
+            <h3>What is your destination?</h3>
+            <select name="Destination" id="destination" required="required">
+                <option value="Cochin">Cochin</option>
+                <option value="Banglore">Banglore</option>
+                <option value="New Delhi">New Delhi</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Kolkata">Kolkata</option>
+            </select>
+
+            <h3>Total Stops</h3>
+            <select name="TotalStops" id="totalstops" required="required">
+                <option value="non-stop">non-stop</option>
+                <option value="1 stop">1 stop</option>
+                <option value="2 stops">2 stops</option>
+                <option value="3 stops">3 stops</option>
+                <option value="4 stops">4 stops</option>
+            </select>
+
+            <h3>Date of Journey</h3>
+            <input type="date" id="dateofjourney" name="DateOfJourney" required="required">
+
+            <h3>Departure Time</h3>
+            <input type="time" id="departuretime" name="DepartureTime" required>
+
+            <h3>Arrival Time</h3>
+            <input type="time" id="arrivaltime" name="ArrivalTime" required>
+
+            <h3>Route if you know</h3>
+            <input type="text" id="route" name="Route">
+
+            <h3>Additional Info</h3>
+            <select name="AdditionalInfo" id="additionalinfo" required="required">
+                <option value="No info">No info</option>
+                <option value="In-flight meal not included">In-flight meal not included</option>
+                <option value="No check-in baggage included">No check-in baggage included</option>
+                <option value="1 Long layover">1 Long layover</option>
+                <option value="Business class">Business class</option>
+                <option value="Change airports">Change airports</option>
+                <option value="1 Short layover">1 Short layover</option>
+                <option value="Red-eye flight">Red-eye flight</option>
+                <option value="2 Long layover">2 Long layover</option>
+            </select>
+
+            <br><br><button id="sub" type="submit ">Calculate Flight Fare</button>
+            <br>
+        </form>
+    </div>
+</body>
+</html>
+<style media="screen">
+h1 {
+  text-align: center;
+  color: hsl(0, 80%, 50%);
+  background-color:rgba(255, 99, 71, 0.4);
+  opacity: 0.6;
+  border-style: outset;
+  border-width: 10px;
+  background-size:contain;
+  margin: 100px 100px 20px 80px;
+  height: 75px;
+  text-shadow: 2px 2px 5px red;
+  font-weight: bold;
+  font-size: 40px;
+  font-family: FreeMono, monospace;
+}
+body {
+  background-color: lightblue;
+}
+
+h3 {
+  color: navy;
+  margin: 5px 100px 0px 80px;
+  font-family: FreeMono, monospace;
+}
+
+h2 {
+  color: green;
+  margin: 5px 50px 0px 80px;
+  font-family: FreeMono, monospace;
+}
+
+select,input {
+  color: navy;
+  margin: 5px 100px 5px 80px;
+  font-family: FreeMono, monospace;
+}
+button{
+  padding: 15px 32px;
+  background-color: #4CAF50;
+  border-radius: 12px;
+  font-family: FreeMono, monospace;
+  box-shadow: 0 32px 68px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin: 5px 100px 5px 80px;
+}
+
+</style>
